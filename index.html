@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Development Kit - Docs</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Use the Inter font family */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Simple scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d1d5db;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9ca3af;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <div class="flex flex-col h-screen">
+        <!-- Header -->
+        <header class="flex-shrink-0 bg-white border-b border-gray-200">
+            <div class="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
+                <!-- Left side: Logo and Title -->
+                <div class="flex items-center">
+                    <!-- Mobile menu button (hidden on larger screens) -->
+                    <button class="md:hidden mr-4 text-gray-500 hover:text-gray-700">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                    <!-- Logo -->
+                    <div class="flex-shrink-0 flex items-center space-x-2">
+                         <svg width="24" height="24" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="4" y="15" width="10" height="10" rx="2" fill="#4285F4"/>
+                            <rect x="26" y="15" width="10" height="10" rx="2" fill="#34A853"/>
+                            <path d="M14 20L26 20" stroke="#FBBC05" stroke-width="4" stroke-linecap="round"/>
+                            <path d="M20 15V25" stroke="#EA4335" stroke-width="4" stroke-linecap="round"/>
+                        </svg>
+                        <span class="text-lg font-semibold text-gray-900">Agent Development Kit</span>
+                    </div>
+                </div>
+
+                <!-- Right side: Search and Links -->
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 rounded-full text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 0 2l-.15.08a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.38a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1 0-2l.15-.08a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </button>
+                    <!-- Search Bar -->
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <input type="text" placeholder="Search" class="bg-gray-100 rounded-md py-2 pl-10 pr-4 block w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white border border-transparent focus:border-blue-500">
+                    </div>
+                    <!-- Language/SDK Links -->
+                    <div class="hidden sm:flex items-center space-x-2">
+                        <a href="#" class="px-3 py-1.5 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200">adk-python</a>
+                        <a href="#" class="px-3 py-1.5 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200">adk-java</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main content area -->
+        <div class="flex-1 flex overflow-hidden">
+            <!-- Sidebar -->
+            <aside class="hidden md:flex md:flex-shrink-0 w-64 bg-white border-r border-gray-200 overflow-y-auto">
+                <nav class="flex-1 px-4 py-6 space-y-1">
+                    <p class="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Agent Development Kit</p>
+                    <a href="#" class="bg-blue-50 text-blue-600 flex items-center px-3 py-2 text-sm font-medium rounded-md">
+                        Home
+                    </a>
+                    <div class="space-y-1">
+                        <button class="w-full flex items-center justify-between text-gray-600 hover:bg-gray-50 hover:text-gray-900 px-3 py-2 text-sm font-medium rounded-md">
+                            <span>Get Started</span>
+                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" /></svg>
+                        </button>
+                    </div>
+                     <div class="space-y-1">
+                        <button class="w-full flex items-center justify-between text-gray-600 hover:bg-gray-50 hover:text-gray-900 px-3 py-2 text-sm font-medium rounded-md">
+                            <span>Tutorials</span>
+                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" /></svg>
+                        </button>
+                    </div>
+                    <div class="space-y-1">
+                        <button class="w-full flex items-center justify-between text-gray-600 hover:bg-gray-50 hover:text-gray-900 px-3 py-2 text-sm font-medium rounded-md">
+                            <span>Agents</span>
+                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" /></svg>
+                        </button>
+                    </div>
+                    <div class="space-y-1">
+                        <button class="w-full flex items-center justify-between text-gray-600 hover:bg-gray-50 hover:text-gray-900 px-3 py-2 text-sm font-medium rounded-md">
+                            <span>Tools</span>
+                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" /></svg>
+                        </button>
+                    </div>
+                    <div class="space-y-1">
+                        <button class="w-full flex items-center justify-between text-gray-600 hover:bg-gray-50 hover:text-gray-900 px-3 py-2 text-sm font-medium rounded-md">
+                            <span>Running Agents</span>
+                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" /></svg>
+                        </button>
+                    </div>
+                    <div class="space-y-1">
+                        <button class="w-full flex items-center justify-between text-gray-600 hover:bg-gray-50 hover:text-gray-900 px-3 py-2 text-sm font-medium rounded-md">
+                            <span>Deploy</span>
+                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" /></svg>
+                        </button>
+                    </div>
+                    <!-- More links... -->
+                </nav>
+            </aside>
+
+            <!-- Content -->
+            <main class="flex-1 overflow-y-auto">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+                    <div class="space-y-8">
+                        <!-- Main Title -->
+                        <div class="flex items-center space-x-4">
+                            <svg width="60" height="60" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="4" y="15" width="10" height="10" rx="2" fill="#4285F4"/>
+                                <rect x="26" y="15" width="10" height="10" rx="2" fill="#34A853"/>
+                                <path d="M14 20L26 20" stroke="#FBBC05" stroke-width="4" stroke-linecap="round"/>
+                                <path d="M20 15V25" stroke="#EA4335" stroke-width="4" stroke-linecap="round"/>
+                            </svg>
+                            <h1 class="text-4xl font-bold tracking-tight text-gray-900">Agent Development Kit</h1>
+                        </div>
+
+                        <!-- Content Section -->
+                        <div class="prose prose-lg max-w-none">
+                            <h2 class="text-2xl font-semibold text-gray-800">What is Agent Development Kit?</h2>
+                            <p class="text-gray-600 leading-relaxed">
+                                Agent Development Kit (ADK) is a flexible and modular framework for <strong>developing and deploying AI agents</strong>. While optimized for Gemini and the Google ecosystem, ADK is <strong>model-agnostic</strong>, <strong>deployment-agnostic</strong>, and is built for <strong>compatibility with other frameworks</strong>. ADK was designed to make agent development feel more like software development, to make it easier for developers to create, deploy, and orchestrate agentic architectures that range from simple tasks to complex workflows.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+</body>
+</html>
